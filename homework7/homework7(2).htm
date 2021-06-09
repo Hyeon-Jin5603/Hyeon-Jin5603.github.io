@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        window.onload = function () {
+            var canvas = document.getElementById('myCanvas6');
+            var context = canvas.getContext('2d');
+            context.lineWidth = 1;
+            context.strokeStyle = '#ff0000';
+            context.beginPath();
+            context.moveTo(0, 0);
+            context.lineTo(100,100 );
+            context.stroke();
+            
+            var sun = document.getElementById('sun');
+            var earth = document.getElementById('earth');
+
+            sun.style.position = 'absolute';
+            earth.style.position = 'absolute';
+
+            sun.style.left = 250 + 'px';
+            sun.style.top = 200 + 'px';
+
+
+            var earthAngle = 0;
+
+
+            setInterval(function () {
+
+                var earthLeft = 230 + 200 * Math.cos(earthAngle);
+                var earthTop = 200 + 200 * Math.sin(earthAngle);
+
+                earth.style.left = earthLeft + 'px';
+                earth.style.top = earthTop + 'px';
+
+                earthAngle += 0.1;
+            }, 1000 / 30);
+        };
+    </script>
+</head>
+
+<body>
+    <canvas id="myCanvas6" height="500" width="500" style="border:1px solid #000000;"></canvas>
+    <h1 id="sun"></h1>
+    <h1 id="earth">@</h1>
+</body>
+
+</html>
